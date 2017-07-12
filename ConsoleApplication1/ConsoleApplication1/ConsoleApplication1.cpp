@@ -3,19 +3,26 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <cstdio>
 using namespace std;
 
-template <typename T>
-double Add(T a, T b) {
+#define ADD(a, b)((a)+(b))
+
+int Add(int a, int b) {
 	return a + b;
 }
 
-
+inline int Add2(int a, int b) {
+	return a + b;
+}
 int main()
 {
-	cout << Add(3, 4) << endl;
-	cout << Add(3.3, 4.4) << endl;
-	cout << Add('A', 'B') << endl;
+	int a, b;
+	scanf_s("%d %d", &a, &b);
+
+	cout << "ADD : " << ADD(a, b) << endl;
+	cout << "Add : " << Add(a, b) << endl;
+	cout << "Add2 : " << Add2(a, b) << endl;
 	//cout << Add("A", "B") << endl;
 
     return 0;
