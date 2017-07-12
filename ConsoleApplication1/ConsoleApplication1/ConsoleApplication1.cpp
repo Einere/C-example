@@ -4,26 +4,20 @@
 #include "stdafx.h"
 #include <iostream>
 #include <cstdio>
-using namespace std;
+//using namespace std;
 
-#define ADD(a, b)((a)+(b))
+namespace TEST {
+	int n = 100;
 
-int Add(int a, int b) {
-	return a + b;
+	void T_func(void) {
+		std::cout << "TEST::T_func()" << std::endl;
+	}
 }
 
-inline int Add2(int a, int b) {
-	return a + b;
-}
 int main()
 {
-	int a, b;
-	scanf_s("%d %d", &a, &b);
-
-	cout << "ADD : " << ADD(a, b) << endl;
-	cout << "Add : " << Add(a, b) << endl;
-	cout << "Add2 : " << Add2(a, b) << endl;
-	//cout << Add("A", "B") << endl;
+	TEST::T_func();
+	std::cout << TEST::n << std::endl;
 
     return 0;
 }
