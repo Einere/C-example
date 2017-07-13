@@ -4,20 +4,20 @@
 #include "stdafx.h"
 #include <iostream>
 #include <cstdio>
-//using namespace std;
+using namespace std;
 
 namespace TEST {
 	int n = 100;
 
 	void T_func(void) {
-		std::cout << "TEST::T_func()" << std::endl;
+		cout << "TEST::T_func()" << endl;
 	}
 }
 
 int main()
 {
 	TEST::T_func();
-	std::cout << TEST::n << std::endl;
+	cout << TEST::n << endl;
 
     return 0;
 }
