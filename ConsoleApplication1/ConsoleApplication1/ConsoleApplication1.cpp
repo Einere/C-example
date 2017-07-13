@@ -6,18 +6,19 @@
 #include <cstdio>
 using namespace std;
 
-namespace TEST {
-	int n = 100;
-
-	void T_func(void) {
-		cout << "TEST::T_func()" << endl;
+class USERDATA {
+public:
+	int age;
+	char name[30];
+	void Print(void) {
+		printf("%d, %s \n", age, name);
 	}
-}
+};
 
 int main()
 {
-	TEST::T_func();
-	cout << TEST::n << endl;
+	USERDATA user = { 20,"Ã¶¼ö" };
+	user.Print();
 
     return 0;
 }
