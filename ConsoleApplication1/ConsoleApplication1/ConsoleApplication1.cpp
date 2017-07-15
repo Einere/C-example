@@ -10,7 +10,7 @@ class CTest {
 	int D;
 
 public:
-	CTest(int p) : D(p) {
+	CTest() :D(10) {
 		cout << "create and init the D" << endl;
 	}
 	~CTest() {
@@ -20,7 +20,11 @@ public:
 
 int main()
 {
-	CTest A(10);
+	cout << "begin" << endl;
+	CTest *p = new CTest;
+	cout << "test" << endl;
+	delete p;
+	cout << "end" << endl;
 
     return 0;
 }
