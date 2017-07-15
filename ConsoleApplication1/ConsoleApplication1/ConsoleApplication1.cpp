@@ -8,10 +8,10 @@ using namespace std;
 
 class CTest {
 public:
-	CTest(int R) :D(R) { //초기화할때, 매개변수를 일반변수로 했을경우.
+	CTest(int &R) :D(R) { //초기화할때, 매개변수를 참조변수로 했을경우, D(R)은 &D=&R과 같아진다.
 		cout << "create and init the D : " << D << ", and R : "<< R << endl; //매개변수는 지역변수이므로 D,R 정상출력됨.
 	}
-	int Return(void) { //29,31행에서 호출될때는, 멤버변수인 D가 참조할 대상인 R이 사라져서, 쓰레기값을 반환함.
+	int Return(void) { //29,31행에서 호출될때, &D=&R=a. 임시객체에 대한 참조이므로 R이 할당해제되도 참조 가능.
 		return D; 
 	}
 	~CTest() {
