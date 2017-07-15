@@ -6,19 +6,21 @@
 #include <cstdio>
 using namespace std;
 
-class USERDATA {
+class CTest {
+	int D;
+
 public:
-	int age;
-	char name[30];
-	void Print(void) {
-		printf("%d, %s \n", age, name);
+	CTest(int p) : D(p) {
+		cout << "create and init the D" << endl;
+	}
+	~CTest() {
+		cout << "delete the D : " << D << endl;
 	}
 };
 
 int main()
 {
-	USERDATA user = { 20,"Ã¶¼ö" };
-	user.Print();
+	CTest A(10);
 
     return 0;
 }
