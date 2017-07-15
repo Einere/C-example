@@ -7,23 +7,23 @@
 using namespace std;
 
 class CTest {
-	int D;
-
 public:
-	CTest() :D(10) {
-		cout << "create and init the D" << endl;
+	//초기화할때, 매개변수를 단순변수로 했을경우.
+	CTest(int R) :D(R) {
+		cout << "create and init the D : " << D << ", and R : "<< R << endl;
 	}
 	~CTest() {
 		cout << "delete the D : " << D << endl;
 	}
+private:
+	int &D;
 };
 
 int main()
 {
 	cout << "begin" << endl;
-	CTest *p = new CTest;
-	cout << "test" << endl;
-	delete p;
+	int a = 10;
+	CTest T(10); //T(a) 대신 T(10)을 써도 동일한 결과가 나온다.
 	cout << "end" << endl;
 
     return 0;
