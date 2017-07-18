@@ -8,15 +8,13 @@ public:
 	C() : N(0) {};
 	~C() {};
 
-	int Get() const {
+	int Get() {
 		return N;
 	}
 	void Set(int P) {
 		N = P;
 	}
-	void Set(double P) {
-		N = 0;
-	}
+	void Set(double P) = delete;
 private:
 	int N = 0;
 };
