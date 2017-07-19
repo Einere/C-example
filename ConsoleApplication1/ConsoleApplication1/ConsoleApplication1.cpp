@@ -5,9 +5,13 @@
 
 class C {
 public:
-	C() : N(0) {};
-	~C() {};
+	C() { cout << "C()" << endl; }
+	~C() {}
 
+	C(const C &rhs) {
+		this->N = rhs.N;
+		cout << "C(const C &rhs)" << endl;
+	}
 	int Get() {
 		return N;
 	}
@@ -25,8 +29,7 @@ int main()
 	a.Set(10);
 	cout << a.Get() << endl;
 
-	C b;
-	b.Set(5.5);
+	C b(a);
 	cout << b.Get() << endl;
 	
 
