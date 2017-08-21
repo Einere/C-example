@@ -7,12 +7,14 @@
 class C {
 public:
 	C() {
-		cout << "C()" << endl; 
+		cout << "C()" << endl;
+		N = new char[32];
 	}
-	~C() {
+	virtual ~C() {
 		cout << "~C()" << endl;
+		delete N;
 	}
-
+	/*
 	C(const C &rhs) : N(rhs.N) {
 		cout << "C(const C &rhs)" << endl;
 	}
@@ -22,32 +24,37 @@ public:
 	void Set(int P) {
 		N = P;
 	}
-protected:
-	void Print() {
-		cout << "C::Print()" << endl;
-	}
+	*/
+
 private:
-	int N=0;
+	char *N;
 };
 
 class C2 :public C {
 public:
 	C2() {
 		cout << "C2()" << endl;
+		M = new int;
 	}
+	~C2() {
+		cout << "~C2()" << endl;
+		delete M;
+	}
+	/*
 	void T() {
 		Print();
 		Set(5);
 		cout << Get() << endl;
 	}
+	*/
+private:
+	int *M;
 };
 
 int main(){
-	C2 data;
-	data.Set(10);
-	cout << data.Get() << endl;
+	C *A = new C2;
+	delete A;
 
-	data.T();
 
     return 0;
 }
