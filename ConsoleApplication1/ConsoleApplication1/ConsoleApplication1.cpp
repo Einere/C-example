@@ -3,58 +3,33 @@
 
 #include "stdafx.h"
 #include <iostream>
-
-class C {
+template<typename T>
+class Stack {
 public:
-	C() {
-		cout << "C()" << endl;
-		N = new char[32];
+	Stack() {  }
+	void Push(T para) {
+		data[i] = para;
+		i++;
 	}
-	virtual ~C() {
-		cout << "~C()" << endl;
-		delete N;
+	void Pop(int para) {
+		cout << *(data+para) << endl;
+		para++;
 	}
-	/*
-	C(const C &rhs) : N(rhs.N) {
-		cout << "C(const C &rhs)" << endl;
-	}
-	int Get() const {
-		return N;
-	}
-	void Set(int P) {
-		N = P;
-	}
-	*/
 
 private:
-	char *N;
-};
-
-class C2 :public C {
-public:
-	C2() {
-		cout << "C2()" << endl;
-		M = new int;
-	}
-	~C2() {
-		cout << "~C2()" << endl;
-		delete M;
-	}
-	/*
-	void T() {
-		Print();
-		Set(5);
-		cout << Get() << endl;
-	}
-	*/
-private:
-	int *M;
+	T data[10];
+	int i = 0;
 };
 
 int main(){
-	C *A = new C2;
-	delete A;
-
+	Stack<int> stack;
+	stack.Push(10);
+	stack.Push(20);
+	stack.Push(30);
+	
+	for (int i = 0; i < 3; i++) {
+		stack.Pop(i);
+	}
 
     return 0;
 }
